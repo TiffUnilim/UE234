@@ -1,0 +1,1105 @@
+/* Tiffany MASSON, UE 234, periode 4 */
+/* background: #CDAA83; #D9A46B; #ECCAAA; #8B6C42 */
+
+/* reinitialisation */
+*, *:after, *:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*********************************************************************/
+/* elements communs */
+html {
+    background: #f2f2f2;
+}
+body {
+    font-family: 'Dancing Script', Arial;
+    font-size: 16px;
+}
+h1 {
+    font-family: Arial;
+    color: #8B6C42;
+}
+h2 {
+    font-family: 'Dancing Script', Arial;
+    color: #fff;
+}
+ul {
+    list-style: none;
+}
+.margin-general {    
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;    
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
+/*********************************************************************/
+/* Header */
+/*header titre*/
+.header-logo-titre {
+    display: flex;
+    flex-direction: row;
+}
+.header-logo-a:hover{
+    transform: scale(1.05);
+}
+.header-logo { 
+    width: 8rem;   
+    height: 8rem;   
+    margin-left: 0;
+    transition: transform 1s;
+}
+.header-logo-titre > h1 {
+    margin: auto;
+    text-transform: uppercase;
+}
+
+/*header menu*/
+.header-nav {
+    display : flex;
+    background: #CDAA83; 
+    background: linear-gradient(180deg, rgb(205, 170, 131), rgb(235, 196, 151));
+    font-size: 18px;
+    font-family: Arial;
+    width: 100%;
+    padding-top: 1rem;  
+    padding-bottom: 1rem; 
+    border-radius: 100px 10px / 120px;
+}
+.header-nav-ul {    
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 60px;
+    justify-content: flex-start;
+    margin: 0 1rem;
+}
+.header-nav-li {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    text-align: center;
+
+    margin-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-right: 0.1rem solid #fff ;
+
+    font-size: 15px;
+    color: #fff;
+}
+.header-nav-li:last-of-type {
+    border-right: none ;
+}
+.header-nav-li > a:hover { color: #8B6C42;}
+.menu-parent > a::after {
+    content: '\25BE';
+    font-size: 18px;
+    color: #fff;
+}
+
+/*cacher menu deroulant*/
+.header-nav-li > ul {
+    display: none;
+    position: absolute;
+        top: 60px;
+        left: 0;
+    background-color: #eeeeee;
+    border-top: 3px solid #8B6C42;
+    width: 175px;
+    z-index: 99;
+}
+.header-nav-li:hover > ul {
+    display: block;
+}
+.header-nav-li > ul > li {
+    padding: 10px 5px;
+    color: #CDAA83;
+    font-size: 16px;
+}
+.header-nav-li > ul > li:hover {
+    background-color: #dddddd;
+    color: #8B6C42;
+}
+
+/*herder salon*/
+.header-salon{  
+    width: 100%;
+    height: 440px;
+    margin: 2rem 0;
+    padding: 0; 
+}
+
+.header-background {    
+    position: relative;
+    z-index: -1;
+    background-image: url("../images/salon_09.png");
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(8px);
+}
+
+.salon{    
+    max-width: 960px; 
+    width: 100%;
+    height: 440px;/*taille image 960 * 440 px*/
+    background-image: url("../images/salon_08.png");    
+    margin: -440px auto 0 auto;
+    border-radius: 10px;
+}
+.salon_animaux{
+    position: relative;
+        top: 0;
+        left: 0;
+}
+.salon_chats_a{ 
+    float: right;
+    margin: 20% 5% 0 0;
+}
+.salon_chiens_a{   
+    float: right; 
+    margin: 30% 20% 0 0;
+}
+.salon_autres_a{
+    float: left;
+    margin: 5% 0 0 20%;
+}
+
+.salon-img {
+    background: transparent;    
+}
+.salon-img:hover {
+    filter: contrast(130%);
+    transform: scale(1.1);
+    filter: drop-shadow(0px 0px 20px #ffffff);
+}
+
+
+/*********************************************************************/
+/* Main contain */ 
+.main-contain {
+    margin: -30px auto 0 auto; 
+    background: linear-gradient(90deg, rgba(205, 170, 131,0.2) 0%, rgba(242,242,242,1) 10%, rgba(255,255,255,1) 50%, rgba(242,242,242,1) 90%, rgba(205, 170, 131, 0.2) 100%);
+}
+.sous-main {            
+    max-width: 1000px;
+    width: 100%;
+    padding: 54px 20px;
+    margin: 0 auto;
+}
+
+
+
+/*carrousel*/
+.carrousel-parent {
+    width: 100%;
+    background-color: #8B6C42;
+    border-radius: 30px;
+    overflow: hidden;
+    padding: 1rem;
+	margin: auto;
+}
+.carrousel-parent::before, .carrousel-parent::after {
+    content: "";
+	position: absolute;
+	    z-index: 2;
+}
+.carrousel-parent::after {
+	    right: 0;
+	    top: 0;
+	transform: rotateZ(180deg);
+}
+.carrousel-parent::before {
+	    left: 0;
+	    top: 0;
+}
+	
+.carrousel {
+    display: flex;
+    flex-direction: row;
+    animation: scroll 50s linear infinite;
+}
+
+.carrousel-div{
+    display: block;
+    flex: 0 0 25%;
+    clip-path: polygon(16% 0, 100% 0%, 84% 100%, 0% 100%);
+    width: 200px;
+    height: 200px;
+    background-color: #CDAA83;
+    margin: 0 -12px;
+    color: #ffffffd5;
+}
+.carrousel-un {margin-left: -50px;}
+.carrousel-nom{    
+    display: block;
+    position: relative;
+        top: 75%;
+        left: 20%;
+        z-index: 0;
+    text-align: center;
+    width: 8rem;
+    border-radius: 10px;
+    background: rgba(128, 128, 128, 0.699);
+    padding: 0.5rem;
+}
+.carrousel-nom:hover{color: #181818de;}
+.carrousel-img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    position: relative;
+        bottom: 40px;
+        z-index: 1;
+}
+.carrousel-div:hover > .carrousel-nom {z-index: 2;}
+
+/*animation depuis https://codepen.io/studiojvla/pen/qVbQqW */
+@keyframes scroll {
+	0% { transform: translateX(0); }
+	100% { transform: translateX(calc(-208px * 7))}
+}
+  
+/********************************************/
+/* Main contain */ 
+/* informations */
+.informations-container{ 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 2rem auto;   
+}
+/*fb*/
+.info-FB{
+    flex: 0 0 300px;/*flex: 0 0 31.3%;*/
+    margin: auto 0;
+}
+/*event*/
+.info-events {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 43.7%;
+    width: 50%;
+}
+.octagone-parent {
+    display: block;
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    width: 220px;
+    height: 220px;    
+    background: #CDAA83; 
+    background: linear-gradient(180deg, rgb(205, 170, 131), rgb(235, 196, 151));
+    margin: 0 auto 0 auto;
+}
+.octagone-parent:hover {
+    background: linear-gradient(180deg, rgb(165, 135, 101), rgb(235, 196, 151) );
+}
+.octagone-enfant{
+    display: block; 
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+}
+.info-event-un , .info-event-deux {    
+    display: block;       
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: auto;
+    height: 200px;
+}
+.info-event-un {background-image: url("../images/event-sterilisation.jpg");}
+.info-event-deux{background-image: url("../images/event-portes-ouvertes.jpg");}
+.octagone-text {
+    display: block;
+    border-radius: 10% 10% 70% 70%;
+    width: 90px;
+    height: 50px;
+    text-align: center;
+    font-size: 16px;
+    color: #4e402c;
+    background-color: rgb(235, 196, 151);
+    margin: -10px auto 10px auto;
+    padding-top: 4%;
+}
+.octagone-text:last-of-type{padding-top: 2%; margin-bottom: 0;}
+
+
+/*info*/
+.info-general{    
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 25%;
+    text-align: center;  
+    color: #fff;
+    max-width: 200px;  
+    width: 100%;
+    line-height: 1.7;
+}
+
+/**/
+#searchbox {
+    background: url(../images/searchbar.png) no-repeat; 
+    background-size: 100% 100%;
+    width: 208px; 
+    height: 29px;
+    margin: 0 auto;
+}
+#searchbox > input { outline: none; }
+
+#searchbox > input[type="text"] {
+    background: transparent;
+    margin: 3px 0px 0px 20px;
+    padding: 5px 0px 5px 0px;
+    border-width: 0px;
+    font-size: 12px;
+    color: #828282;
+    width: 70%;
+    display: inline-table;
+    vertical-align: top;
+}
+#button-recherche {
+    background: url(../images/recherche.png) no-repeat;
+    border-width: 0px;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-top: 4px;
+    width: 21px;
+    height: 22px;
+}
+#button-recherche:hover {background: url(../images/recherche-hover.png) no-repeat;}
+#button-recherchet:active {
+    background: url(../images/recherche-hover.png) no-repeat;
+    outline: none;
+}
+
+/**/
+.info-texte { 
+    margin: 1rem auto; 
+    color: #4e402c;
+}
+.info-texte > a:hover {color: #000;}
+
+/**/
+.info-button {
+    align-items: center;
+    padding: 0.5rem 0.2rem; 
+    width: 100%;
+    margin: 0.2rem auto;
+    border: none;
+    border-radius: 10px;
+    background-color: #CDAA83;  
+    color: #fff;
+    font-family: Arial;
+    font-size: 12px;
+}
+.info-button:before {
+    content:''; 
+    display: inline-block; 
+    width: 1rem; 
+    height: 1rem; 
+    margin-right: 0.2rem;  
+    color: #fff;
+    background-repeat: no-repeat; 
+    background-position: center; 
+    background-size: contain;
+    background-color: transparent;    
+}
+.info-b-un {margin-top: 25px;}
+.info-b-deux {margin: 10px 0;}
+.info-b-un:before {background-image: url(../images/icon-home.png); }
+.info-b-deux:before {background-image: url(../images/icon-chat.png); }
+.info-b-trois:before {background-image: url(../images/icon-fichier.png); }
+
+.info-button:hover{background-color: #8B6C42;}
+
+/********************************************/
+/* Main contain */ 
+    /* nos-chiens-container & nos-chats-container & nos-SOS-container & nos-autres-container = commun */
+    .nos-chiens-container, 
+    .nos-chats-container,
+    .nos-SOS-container,
+    .nos-autres-container{
+        width: 100%;
+        text-align: center;
+    }
+    .nos-chiens-container > h2, 
+    .nos-chats-container > h2,
+    .nos-SOS-container > h2,
+    .nos-autres-container > h2  {
+        display: block;
+        border-radius: 20px;
+        text-align: center;
+        color: #fff;
+        padding: 0.5rem 0;
+        height: 44px;
+        width: 95%;
+        margin: 0 auto;
+    } 
+    .a-h2, .a-h22, .a-h23, .a-h24 {
+        display: block;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        height: 44px;
+        width: 150px;
+        position: relative;
+            bottom: 37px;
+        font-size: 14px;
+        font-weight: normal;
+        font-family: Arial;
+        padding-top: 13px;
+        transition: all 0.2s;
+    }
+    .a-h2:hover, .a-h22:hover, .a-h23:hover, .a-h24:hover {     
+        color: #4e402c;    
+        transform: translateX(-5px);    
+        transition: all 0.2s;
+    }
+
+/* nos-chiens-container */
+.nos-chiens-container > h2 {
+    background: #CDAA83;
+}
+.a-h2::before { 
+    content: "< Tous nos chiens";
+    color: #fff; 
+}
+.a-h2 {
+    background: linear-gradient(-90deg, rgb(206, 171, 131), rgb(139, 104, 75));
+}
+.a-h2:hover {     
+    background: linear-gradient(-90deg, rgb(206, 171, 131), rgb(168, 141, 118));  
+}
+.a-h2:hover::before { content: "<<< Tous nos chiens";}
+
+/* nos-chats-container */
+.nos-chats-container > h2 {background: #8b684b;}
+.a-h22::before { 
+    content: "< Tous nos chats";
+    color: #fff; 
+}
+.a-h22 {
+    background: linear-gradient(-90deg, rgb(139, 104, 75),  rgb(206, 171, 131));
+}
+.a-h22:hover {     
+    background: linear-gradient(-90deg,  rgb(139, 104, 75), rgb(110, 98, 84));  
+}
+.a-h22:hover::before { content: "<<< Tous nos chats";}
+
+
+/* nos-chiens-container & nos-chats-container & nos-SOS-container & nos-autres-container = commun */
+.nos-ch-a {
+    display: inline-block;
+    margin: 1rem;    
+    width: 200px;
+    height: 200px;
+}
+.nos-ch-div{
+    display: block;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 70% 30% 70% 30%;
+    transition: all 0.3s;
+}
+.ch-img, .sos-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s;
+}
+.ch-nom, .sos-nom {   
+    display: block;
+    border-radius: 10px;
+    width: 80%;
+    height: 40px;
+    position: relative;
+        top: -40px;
+        z-index: 5;
+    padding-top: 5%;
+    margin: 0 auto;
+
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+}
+.ch-nom {  
+    background: #4e402c;
+    background: linear-gradient(180deg, rgba(116, 96, 68, 0.7), rgba(78, 64, 44, 0.9));
+} 
+.nos-ch-a:hover > .nos-ch-div {
+    border-radius: 30% 70% 30% 70%; 
+    transition: all 0.3s;
+}
+.nos-ch-a:hover > .nos-ch-div > .ch-img,
+.nos-sos-a:hover > .nos-sos-div > .sos-img {
+    filter: contrast(1.1); 
+    transition: all 0.3s;
+}
+.nos-ch-a:hover > .ch-nom {
+    background: linear-gradient(180deg, rgba(116, 96, 68, 1), rgba(78, 64, 44, 1));
+}
+.span-genre{
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: relative;
+        left: 130px;
+        bottom: 20px;
+    background-repeat: no-repeat; 
+    background-position: center; 
+    background-size: contain;
+    background-color: transparent;
+}
+.genre-M{
+    background-image: url("../images/icone-M.png");
+}
+.genre-F{
+    background-image: url("../images/icone-F.png");
+}
+.span-lof, .span-R, .span-none {  
+    display: block;    
+    padding: 13px 8px;
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: bold;    
+}
+.span-lof {    
+    width: 40px;
+    height: 40px;
+    position: relative;
+        bottom: 210px;
+    color: #4e402c;
+    background: linear-gradient(180deg, rgb(249, 242, 149), rgb(224, 170, 62));
+}
+.span-R {
+    width: 80px;
+    height: 40px;
+    position: relative;
+        bottom: 250px;
+    color: #fff;
+    background: linear-gradient(180deg, rgb(97, 185, 74), rgb(80, 155, 62));
+}
+.span-none {    
+    width: 40px;
+    height: 40px;
+    position: relative;
+        bottom: 230px;
+    color: rgba(255, 255, 255, 0);
+    background: transparent;
+}
+
+/********************************************/
+/* Main contain */ 
+/* nos-SOS-container */
+.nos-SOS-container { padding-bottom: 5rem;}
+.nos-SOS-container > h2 { background: #d31a1a;}
+.a-h23::before { 
+    content: "< Toutes nos adoptions urgentes";
+    color: #fff; 
+}
+.a-h23 {
+    width: 240px;
+    background: linear-gradient(-90deg, rgb(211, 26, 26),  rgb(138, 19, 19));
+}
+.a-h23:hover {     
+    background: linear-gradient(-90deg,  rgb(211, 26, 26), rgb(168, 59, 59));  
+}
+.a-h23:hover::before { content: "<<< Toutes nos adoptions urgentes";}
+.SOS-content{display: flex; flex-direction: row; flex-wrap: wrap; margin-top: 1rem;}
+.SOS-text-div {
+    display: block;
+    height: 300px;
+    width: 230px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 14px;
+    font-family: Arial;
+    background: #af6565;
+    margin: 0 auto;
+}
+.SOS-text-p {padding: 1rem 2rem}
+.SOS-text-div  > ul {
+    list-style-type: disc;
+    text-align: left;
+    margin-left: 20%;
+}
+
+.SOS-animaux{display: flex; flex-direction: row; flex-wrap: wrap; margin: 0 auto; text-align: center;}
+.nos-sos-a {
+    display: inline-block;
+    margin: 2rem 0.7rem;    
+    width: 150px;
+    height: 150px;    
+}
+.nos-sos-div{
+    display: block;
+    width: 150px;
+    height: 150px;
+    border-radius: 10px 100px / 100px;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+.sos-nom { 
+    top: -14px;
+    background: #af6565;
+    background: linear-gradient(180deg, rgba(175, 101, 101, 0.7), rgba(212, 126, 126, 0.9));
+}
+.nos-sos-a:hover > .nos-sos-div {
+    border-radius: 40% 5% 40% 5%;
+    transition: all 0.3s;
+}
+.nos-sos-a:hover > .sos-nom {
+    background: linear-gradient(180deg, rgba(175, 101, 101, 1), rgba(212, 126, 126, 1));
+}
+.genreSOS-M{
+    opacity: 0.5;
+    left: 93px;
+    background-image: url("../images/icone-M-sos.png");
+}
+.genreSOS-F{
+    opacity: 0.5;
+    left: 93px;
+    background-image: url("../images/icone-F-sos.png");
+}
+.span-sos-lof, .span-sos {  
+    display: block;    
+    font-size: 13px;
+    font-weight: bold;    
+}
+.span-sos-lof {    
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    padding: 13px 8px;
+    position: relative;
+        bottom: 233px;
+        left: 116px;
+    color: #4e402c;
+    background: linear-gradient(180deg, rgb(249, 242, 149), rgb(224, 170, 62));
+}
+.span-sos {
+    width: 40px;
+    height: 40px;
+    padding-top: 13px;
+    position: relative;
+        bottom: 193px;
+        left: 2px;
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    color: #fff;
+    background: linear-gradient(180deg, rgb(211, 26, 26),  rgb(138, 19, 19));
+}
+
+
+/********************************************/
+/* Main contain */ 
+/* nos-autres-container */
+.nos-autres-container > h2 {
+    background: #CDAA83;
+}
+.a-h24::before { 
+    content: "< Tous nos autres animaux";
+    color: #fff; 
+}
+.a-h24 {
+    width: 200px;
+    background: linear-gradient(-90deg, rgb(206, 171, 131), rgb(139, 104, 75));
+}
+.a-h24:hover {     
+    background: linear-gradient(-90deg, rgb(206, 171, 131), rgb(168, 141, 118));  
+}
+.a-h24:hover::before { content: "<<< Tous nos autres animaux";}
+
+.nos-autres-container > .nos-ch-a {transform: translateX(37px);}
+
+
+.nos-autres-div{
+    display: block;
+    width: 130px;
+    height: 200px;
+    background: #b49673;
+    padding: 0.3rem;
+    overflow: hidden;
+    border-radius: 30px;
+    transition: all 0.3s;
+    position: relative;
+        z-index: 2;
+}
+.nos-autres-div > .ch-img{border-radius: 30px;}
+
+.autres-espece {
+    display: block;
+    width: 130px;
+    height: 160px;
+    position: relative;
+        bottom: 188px;
+        left: -36px;
+        z-index: 1;
+    background: #CDAA83;
+    border-radius: 30px;
+    transform: rotate(-31deg);
+    text-align: left;
+    color: #fff;
+    padding: 13px 0 0 10px;
+    transition: all 1s;
+}
+.autres-nom , .autres-nom-vide{
+    display: block;
+    width: 120px;
+    height: 150px;
+    background: #eccba5;
+    border-radius: 30px;
+    transform: rotate(-152deg);
+    text-align: right;
+    color: #fff;
+    transition: all 1s;
+}
+.autres-nom {
+    position: relative;
+        bottom: 338px;
+        left: 46px;
+        z-index: 1;
+    writing-mode: vertical-lr;
+    padding-right: 98px;
+    padding-bottom: 33px;
+    font-size: 20px;
+    color: #fff;
+}
+.autres-nom-vide{
+    position: relative;
+        bottom: 338px;
+        left: 27px;
+        z-index: 1;
+}
+
+.span-autres-genre {
+    display: block;
+    width: 20px;
+    height: 20px;
+    transform: rotate(152deg);
+    background-repeat: no-repeat; 
+    background-position: center; 
+    background-size: contain;
+    background-color: transparent;
+}
+.autres-nom-vide > .span-autres-genre {
+    position: relative;
+        left: 13px;
+        top: 112px;
+}
+.autres-nom > .span-autres-genre {
+    position: relative;
+        left: 10px;
+        top: 114px;
+}
+.nos-autres-container > .nos-ch-a:hover > .autres-espece{
+    transition: all 1s;
+    background: #eccba5;
+    color: #4e402c;
+    font-weight: bold;
+}
+.nos-autres-container > .nos-ch-a:hover > .autres-nom , 
+.nos-autres-container > .nos-ch-a:hover > .autres-nom-vide {
+    transition: all 1s;
+    background: #CDAA83;
+    color: #4e402c;
+    font-weight: bold;
+}
+  
+/********************************************/
+/* Main contain */ 
+/* des-nouvelles-container */
+.des-nouvelles-container{
+    display: flex;
+    flex-direction: row;
+    padding-top: 100px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.nouvelles-bandeau-yt {
+    flex: 0 0 50%;
+    margin: auto;
+    max-height: 300px;
+}
+.nouvelles-YT{
+    display: block;  
+    border-radius: 20px;
+}
+.nouvelles-bandeau-yt > a {color: #fff;}
+.nouvelles-bandeau {
+    display: block;
+
+    border-radius: 20px;
+    padding: 10px 5px;
+
+    position: relative;
+        bottom: 313px;
+        left: 46px;
+    background: linear-gradient(90deg, #a18667 ,#CDAA83);
+    transform: rotate(228deg);
+    writing-mode: vertical-lr;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+}
+.nouvelles-bandeau:hover {color: #4e402c; background: linear-gradient(90deg, #ffdbb5 ,#CDAA83);}
+
+.nouvelles-videos {
+    display: block;
+    flex: 0 0 50%;
+
+    margin: 0 auto;
+    padding: 5px;
+
+    text-align: center;
+    background: linear-gradient(90deg, #a18667 ,#CDAA83);
+    border-radius: 20px;
+    color: #fff;
+}
+
+.nouvelles-videos > h2:before {
+    content:''; 
+    display: inline-block; 
+    width: 1rem; 
+    height: 1rem;
+    margin-right: 0.5rem;
+    background-repeat: no-repeat; 
+    background-position: center; 
+    background-size: contain;
+    background-color: transparent; 
+    background-image: url(../images/icone-cam.png); 
+}
+.nouvelles-videos > h2 {margin: 1rem; font-size: 20px;}
+
+
+.nouvelles-img {width: 300px; height: 169px; border-radius: 10px;} /*taille image 300*169 */
+.nouvelles-nom {
+    display: block;
+    border-radius: 10px;
+    width: 100px;
+    height: 30px;
+    position: relative;
+        bottom: 30px;
+        right: 100px;
+    padding-top: 7px;
+    margin: 0 auto;
+
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    background: #4e402c;
+    background: linear-gradient(180deg, rgba(116, 96, 68, 0.7), rgba(78, 64, 44, 0.9));
+}
+.nouvelles-a:hover > .nouvelles-nom {background: linear-gradient(180deg, rgba(116, 96, 68, 1), rgba(78, 64, 44, 1));}
+
+.nouvelles-texte {
+    margin: -10px auto 20px auto;
+    text-align: left;
+    font-family: Arial;
+    width: 50%;
+}
+.nouvelles-text-a:hover { 
+    font-weight: bold;
+    color: #4e402c;
+}
+
+/*********************************************************************/
+/* Footer */
+.footer{    
+    display: flex;
+    flex-direction: row;
+    position: relative;
+        bottom: 0;   
+    height: auto;
+    background: linear-gradient(180deg, #a18667 10%,#CDAA83 40%);
+    padding: 1rem 2rem;
+    font-family: Arial;
+}
+
+
+.plan-relance, .mentions-legales {flex: 0 0 50%; color: #fff; font-size: 12px;}
+.plan-relance {
+    text-align: center;
+    padding: 0 1rem;
+}
+.plan-relance > h2 {margin-bottom: 6px; font-family: Arial;}
+.plan-relance > p {text-align: justify;}
+.gouv-img { 
+    width: 200px;
+    height: auto;
+    margin: 0 auto;
+    float: left;
+}
+
+.mentions-legales {
+    display: table;
+    text-align: left;
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 5px 0;
+    border: 3px solid transparent;
+}
+.mentions-legales > caption, 
+.plan-relance > h2{
+    font-size: 16px; 
+    font-weight: bold;
+}
+.mentions-legales > thead {font-size: 14px;}
+
+
+/*********************************************************************/
+/* Responsive design */
+/* 800px = 50rem Tablette*/
+@media screen and (max-width: 50rem) {
+    .margin-general {    
+        max-width: 800px;
+        width: 100%;
+        margin: 0 auto;    
+    }
+    /*herder salon*/
+    .header-background {
+        background-image: none;
+        height: 0; 
+    }
+    .salon{    
+        max-width: 800px; 
+        width: 100%;
+        height: 100%;        
+        margin: 0px auto 0 auto;
+        border-radius: 10px;
+    } 
+    .salon_chats_a{ margin: 23% 5% 0 0;}
+    .salon_chiens_a{ margin: 35% 6% 0 0;}
+    .salon_autres_a{ margin: 6.5% 0 0 25%;}
+
+    /*main*/
+    .sous-main {            
+        max-width: 800px;
+        width: 100%;
+        padding: 54px 0;
+    }
+
+    /*carrousel*/
+    .carrousel-div{ height: 180px;}
+    .carrousel-nom { left: 10%; }
+    @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-165px * 7))}
+    }
+
+    /*info*/
+    .info-events {
+        flex: 0 0 30%;
+    }
+
+    /* main animaux */
+    .nos-chiens-container > h2, 
+    .nos-chats-container > h2,
+    .nos-SOS-container > h2,
+    .nos-autres-container > h2  {
+        max-width: 750px;
+        width: 80%;
+        margin: 10%;
+    } 
+    /*.nos-autres-container > h2  { text-align: right; padding-right: 10px;}*/
+    .nos-ch-a { margin: 1rem 2rem;  }
+    .SOS-text-div{width: 80%; height: auto;}
+    
+    /*nouvelles*/
+    .des-nouvelles-container{flex-direction: column;}
+
+    /*footer*/
+    .footer{flex-direction: column;}
+    .plan-relance {
+        border-bottom: 3px solid #fff;
+        padding-bottom: 0.5rem;
+    }
+    
+} 
+@media screen and (max-width: 720px) {.nos-autres-container > h2  { text-align: right; padding-right: 10px;}}
+/* 480px = 30rem Mobile*/
+@media screen and (max-width: 30rem) {
+    h1 {text-align: center;}
+
+    .margin-general {    
+        max-width: 480px;
+        margin: 0 auto;    
+    }
+    /*nav*/
+    .header-nav{height: 200px; padding: 46px 0px 0 17px;}
+    .header-nav-ul {flex-wrap: wrap; margin: 0 auto;}
+    .header-nav-li {width: 150px; margin: 5px 0;}
+    .header-nav-li:last-of-type {border-right: 0.1rem solid #fff ; margin-top: 10px;}
+  
+    /*salon*/
+    .header-salon { max-width: 480px; overflow-x: hidden;}
+    .salon{
+        max-width: 480px; width: 480px; 
+        border-radius: 5px; 
+        background-position: center; 
+        background-size: cover;        
+    }
+    .salon_chats_a{ margin: 37% -1% 0 0;}
+    .salon_chiens_a{ margin: 58% 4% 0 0;}
+    .salon_autres_a{ margin: 51px 0 0px -7%;}
+
+    /*main*/
+    .main-contain {overflow-x: hidden;}
+    .sous-main { max-width: 480px; width: 480px;}
+
+    /*carrousel*/
+    .carrousel-div{ height: 120px; margin: 0 0px;}
+    .carrousel-nom{left: -6%; }
+    @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-128px * 7))}
+    }
+
+    /*info*/
+    .informations-container{ 
+        flex-direction: column;
+        margin: 2rem auto;   
+        text-align: center;
+    }
+    .info-FB, 
+    .info-events, 
+    .info-general{ flex: auto; margin: auto; }
+
+    /* main animaux */
+    .nos-chiens-container > h2, 
+    .nos-chats-container > h2,
+    .nos-SOS-container > h2,
+    .nos-autres-container > h2  {width: 430px;} 
+
+    .nos-SOS-container {
+        max-height: none;
+        height: 100%;
+        padding-bottom: 50px;
+    }
+    .nos-SOS-container > h2{text-align: right; padding-right: 10px;}
+
+    .SOS-text-div {
+        height: auto;
+        width: 87%;
+        font-size: 16px;
+    }
+    .SOS-animaux{flex-direction: column;}
+
+}
+
